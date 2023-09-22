@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Employee List</title>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: left;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #e0e0e0;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <h1>Employee List</h1>
+    <table border="1">
+        <tr>
+            <th>Emp No</th>
+            <th>Name</th>
+            <th>Job</th>
+            <th>Salary</th>
+            <th>Dept No</th>
+        </tr>
+        <tr th:each="emp : ${employees}">
+            <td class="align-middle" th:text="${emp.id}"></td>
+            <td class="align-middle" th:text="${emp.name}"></td>
+            <td class="align-middle" th:text="${emp.job}"></td>
+            <td class="align-middle" th:text="${emp.salary}"></td>
+            <td class="align-middle" th:text="${emp.department}"></td>
+        </tr>
+        <tr th:if="${employees.isEmpty()}">
+            <td class="text-center" colspan="5">No Records found. Add some...!</td>
+        </tr>
+    </table>
+</body>
+</html>
